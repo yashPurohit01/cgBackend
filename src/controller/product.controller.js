@@ -5,7 +5,8 @@ const createProduct = (req, res) =>{
         product_name: req.body.product_name,
         description: req.body.description,
         price: req.body.price,
-        image: req.body.image
+        image: req.body.image,
+        category: req.body.category
     })
     newProduct.save()
     .then( result =>{
@@ -15,7 +16,7 @@ const createProduct = (req, res) =>{
             result
         })
     }).catch(error =>{
-        return res.ststus(500).json({
+        return res.status(500).json({
             success: false,
             message: `error in creating`
         })

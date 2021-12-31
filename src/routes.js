@@ -4,7 +4,8 @@ const router = express.Router();
 const UserController = require('./controller/user.controller');
 const ResumeController = require('./controller/resume.controller');
 const ProductController = require('./controller/product.controller');
-//import UserController from './controller/user.controller'
+
+
 
 router.post('/register', UserController.userRegister);
 router.post('/login', UserController.Userlogin);

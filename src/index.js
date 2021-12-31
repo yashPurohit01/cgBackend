@@ -1,16 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const routes = require('../src/routes')
+const routes = require('../src/routes');
+const cors = require('cors');
 
 
 const app = express();
-port = 8000
+let port = 7000
 app.use(bodyParser.json());
-app.use('/',routes)
 
-const mongoDb = "mongodb://localhost:27017/mydb"
+app.use(cors());
 
+app.use('/' , routes)
+
+//const mongoDb = "mongodb+srv://DevYadav:000852@cluster0.c9ave.mongodb.net/emp-details?retryWrites=true&w=majority"
+ 
+const mongoDb = "mongodb+srv://ccherbal:ccherbal12@ccherbal.fbbaa.mongodb.net/ccherbal?retryWrites=true&w=majority"
 mongoose.connect(mongoDb, {
     useNewUrlParser : true,
     useUnifiedTopology: true
@@ -20,5 +25,8 @@ mongoose.connect(mongoDb, {
         console.log("server is running", port);
     })
 }).catch(error =>{
-    console.log("err in Db connection");
+    console.log(`err in Db connection ${error}`);
 })
+
+
+
