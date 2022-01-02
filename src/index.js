@@ -6,7 +6,7 @@ const cors = require('cors');
 
 
 const app = express();
-let port = 7000
+let PORT = process.env.PORT || 7000;
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -21,8 +21,8 @@ mongoose.connect(mongoDb, {
     useUnifiedTopology: true
 }).then(success =>{
     console.log("Successfully connected to mongoDb");
-    app.listen(port, () =>{
-        console.log("server is running", port);
+    app.listen(PORT, () =>{
+        console.log("server is running", PORT);
     })
 }).catch(error =>{
     console.log(`err in Db connection ${error}`);
